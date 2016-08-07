@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="tpls/button/css3buttons/css/css3buttons.css"/>
+
+<div class="pop" style="display:none;">
+    <div id="cboxOverlay" style="opacity: 0.9; cursor: pointer; display: block;"></div>
+    <div id="colorbox" class="">
+        <div id="cboxWrapper" style="height: 366px; width: 452px;">
+            <div>
+                <div id="cboxTopLeft" style="float: left;"></div>
+                <div id="cboxTopCenter" style="float: left; width: 452px;"></div>
+                <div id="cboxTopRight" style="float: left;"></div>
+            </div>
+            <div style="clear: left;">
+                <div id="cboxMiddleLeft" style="float: left; height: 346px;"></div>
+                <div id="cboxContent" style="float: left; width: 452px; height: 346px;">
+                    <div id="cboxLoadedContent" style="width: 442px; overflow: auto; height: 336px;">
+                        <img class="cboxPhoto" src="tpls/button/css3buttons/images/stimpy.png" style="float: none;">
+                    </div>
+                    <div id="cboxLoadingOverlay" class="" style="height: 346px; display: none;"></div>
+                    <div id="cboxLoadingGraphic" class="" style="height: 346px; display: none;"></div>
+                    <div id="cboxTitle" class="" style="display: block;"></div>
+                    <div id="cboxCurrent" class="" style="display:none;"></div>
+                    <div id="cboxNext" class="" style="display: none;"></div>
+                    <div id="cboxPrevious" class="" style="display: none;"></div>
+                    <div id="cboxSlideshow" class="" style="display: none;"></div>
+                    <div id="cboxClose" class="">close</div>
+                </div>
+                <div id="cboxMiddleRight" style="float: left; height: 346px;"></div>
+            </div>
+            <div style="clear: left;">
+                <div id="cboxBottomLeft" style="float: left;"></div>
+                <div id="cboxBottomCenter" style="float: left; width: 452px;"></div>
+                <div id="cboxBottomRight" style="float: left;"></div>
+            </div>
+        </div>
+        <div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div>
+    </div>
+</div>
+
+<header>
+    <h1>Cross Browser Pure CSS3 Buttons*</h1>
+</header>
+
+<section style="width: 1000px; margin:0 auto;">
+
+    <div class="but-div" id="transparent-back">
+        <h2 class="skew">Transparent</h2>
+        <a href="" class="transparent">CSS3 Isometric Text</a>
+        <a href="" class="transparent">Downloads</a>
+        <a href="" class="transparent">Safari Extensions</a>
+    </div>
+
+    <div class="but-div" id="text-back">
+        <h2 class="skew">3D Text Buttons</h2>
+        <ul>
+            <li><a href="" class="text">Twitter</a></li>
+            <li><a href="" class="text">Feedburner</a></li>
+        </ul>
+    </div>
+
+    <div class="but-div" id="blog-back">
+        <h2 class="skew">Blog Pager</h2>
+        <a href="" class="pager1"> newer posts</a>
+        <a href="" class="pager2">older posts </a>
+    </div>
+
+    <div class="but-div" id="round-back">
+        <h2 class="skew">Big Red Button</h2>
+        <a href="" class="round">Random<br>Article!</a>
+    </div>
+
+</section>
+<script>
+    $('.transparent').click(function(){
+        $('.pop').show();
+    });
+    $('#cboxClose').click(function(){
+        $('.pop').hide();
+    });
+</script>
+

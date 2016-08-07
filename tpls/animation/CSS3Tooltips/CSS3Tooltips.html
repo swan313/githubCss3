@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="tpls/animation/CSS3Tooltips/css/CSS3Tooltips.css"/>
+<link id="butStyle" rel="stylesheet" href="tpls/animation/CSS3Tooltips/css/butStyle-3.css"/>
+
+<div class="container">
+
+    <h1>How to create animated tooltips with CSS3</h1>
+    <div class="more">
+        <ul>
+            <li class="selected"><a href="javascript:;">Demo 1</a></li>
+            <li><a href="javascript:;">Demo 2</a></li>
+            <li><a href="javascript:;">Demo 3</a></li>
+            <li><a href="javascript:;">Demo 4</a></li>
+        </ul>
+    </div>
+</div>
+<div>
+    <ul class="tt-wrapper">
+        <li><a class="tt-gplus" href="#"><span>Google Plus</span></a></li>
+        <li><a class="tt-twitter" href="#"><span>Twitter</span></a></li>
+        <li><a class="tt-dribbble" href="#"><span>Dribbble</span></a></li>
+        <li><a class="tt-facebook" href="#"><span>Facebook</span></a></li>
+        <li><a class="tt-linkedin" href="#"><span>LinkedIn</span></a></li>
+        <li><a class="tt-forrst" href="#"><span>Forrst</span></a></li>
+    </ul>
+
+</div>
+
+<script>
+    $('.more li').on('click',function(){
+        var _index = $(this).index();
+        $('.more li').removeClass('selected').eq(_index).addClass('selected');
+        $('#butStyle').attr('href','tpls/animation/CSS3Tooltips/css/butStyle-'+(_index+1)+'.css');
+//        $('.ch-grid').css('display','none').eq(_index).css('display','block');
+    });
+</script>

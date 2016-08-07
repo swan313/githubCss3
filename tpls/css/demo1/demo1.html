@@ -1,0 +1,390 @@
+<link rel="stylesheet" href="tpls/css/demo1/css/demo1.css"/>
+
+<h1 class="post-title" itemprop="headline">20个常用的CSS技巧</h1>
+<div class="entry" itemprop="articleBody" style="padding-left: 30px;">
+    <h3 id="t1">
+        <span id="__kindeditor_bookmark_start_2__"></span>1. 黑白图像
+    </h3>
+    <p>
+        这段<span class="wp_keywordlink">代码</span>会让你的彩色照片显示为黑白照片，是不是很酷？
+    </p>
+    <pre>
+        img.desaturate {
+            filter: grayscale(100%);
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            -ms-filter: grayscale(100%);
+            -o-filter: grayscale(100%);
+        }
+    </pre>
+    <h3 id="t2">
+        2. 使用 :not() 在菜单上应用/取消应用边框
+    </h3>
+    <p>
+        先给每一个菜单项添加边框
+    </p>
+<pre>/* add border */
+.nav li {
+  border-right: 1px solid #666;
+}
+</pre>
+    <p>
+        ……然后再除去最后一个元素……
+    </p>
+<pre>// remove border /
+
+.nav li:last-child {
+  border-right: none;
+}
+</pre>
+    <p>
+        ……可以直接使用 :not() 伪类来应用元素：
+    </p>
+<pre>.nav li:not(:last-child) {
+  border-right: 1px solid #666;
+}
+</pre>
+    <p>
+        这样代码就干净，易读，易于理解了。
+    </p>
+    <p>
+        当然，如果你的新元素有兄弟元素的话，也可以使用通用的兄弟选择符（~）：
+    </p>
+<pre>..nav li:first-child ~ li {
+
+  border-left: 1px solid #666;
+}
+</pre>
+    <h3 id="t3">
+        3. 页面顶部阴影
+    </h3>
+    <p>
+        下面这个简单的 <span class="wp_keywordlink">css3</span> 代码片段可以给网页加上漂亮的顶部阴影效果：
+    </p>
+<pre>body:before {
+          content: "";
+          position: fixed;
+          top: -10px;
+          left: 0;
+          width: 100%;
+          height: 10px;
+
+          -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+          -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+          box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+
+          z-index: 100;
+}
+</pre>
+    <h3 id="t4">
+        4. 给 body 添加行高
+    </h3>
+    <p>
+        你不需要分别添加 line-height 到每个p,h标记等。只要添加到 body 即可：
+    </p>
+<pre>body {
+  line-height: 1;
+}
+</pre>
+    <p>
+        这样文本元素就可以很容易地从 body 继承。
+    </p>
+    <h3 id="t5">
+        5. 所有一切都垂直居中
+    </h3>
+    <p>
+        要将所有元素垂直居中，太简单了：
+    </p>
+<pre>html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-flex;
+  display: flex;
+}
+</pre>
+    <p>
+        看，是不是很简单。
+    </p>
+    <p>
+        注意：在IE11中要小心flexbox。
+    </p>
+    <h3 id="t6">
+        6. 逗号分隔的列表
+    </h3>
+    <p>
+        让<span class="wp_keywordlink">html</span>列表项看上去像一个真正的，用逗号分隔的列表：
+    </p>
+<pre>ul &gt; li:not(:last-child)::after {
+  content: ",";
+}</pre>
+    <p>
+        对最后一个列表项使用 :not() 伪类。
+    </p>
+    <h3 id="t7">
+        7. 使用负的 nth-child 选择项目
+    </h3>
+    <p>
+        在CSS中使用负的 nth-child 选择项目1到项目n。
+    </p>
+<pre>li {
+  display: none;
+}
+
+/* select items 1 through 3 and display them */
+li:nth-child(-n+3) {
+  display: block;
+}
+</pre>
+    <h3 id="t8">
+        8. 对图标使用 SVG
+    </h3>
+    <p>
+        我们没有理由不对图标使用SVG：
+    </p>
+<pre>.logo {
+  background: url("logo.svg");
+}
+</pre>
+    <p>
+        SVG对所有的分辨率类型都具有良好的扩展性，并支持所有浏览器都回归到IE9。这样可以避开.png、.jpg或.gif文件了。
+    </p>
+    <h3 id="t9">
+        9. 优化显示文本
+    </h3>
+    <p>
+        有时，字体并不能在所有设备上都达到最佳的显示，所以可以让设备浏览器来帮助你：
+    </p>
+<pre>html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+</pre>
+    <p>
+        注：请负责任地使用 optimizeLegibility。此外，IE /Edge没有 text-rendering 支持。
+    </p>
+    <h3 id="t10">
+        10. 对纯 CSS 滑块使用 max-height
+    </h3>
+    <p>
+        使用 max-height 和溢出隐藏来实现只有CSS的滑块：
+    </p>
+<pre>.slider ul {
+  max-height: 0;
+  overlow: hidden;
+}
+
+.slider:hover ul {
+  max-height: 1000px;
+  transition: .3s ease;
+}
+</pre>
+    <h3 id="t11">
+        11. 继承 box-sizing
+    </h3>
+    <p>
+        让 box-sizing 继承 html：
+    </p>
+<pre>html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+</pre>
+    <p>
+        这样在插件或杠杆其他行为的其他组件中就能更容易地改变 box-sizing 了。
+    </p>
+    <h3 id="t12">
+        12. 表格单元格等宽
+    </h3>
+    <p>
+        表格工作起来很麻烦，所以务必尽量使用 table-layout: fixed 来保持单元格的等宽：
+    </p>
+<pre>.calendar {
+  table-layout: fixed;
+}
+</pre>
+    <h3 id="t13">
+        13. 用 Flexbox 摆脱外边距的各种 hack
+    </h3>
+    <p>
+        当需要用到列分隔符时，通过flexbox的 space-between 属性，你就可以摆脱nth-，first-，和 last-child 的hack了：
+    </p>
+<pre>.list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list .person {
+  flex-basis: 23%;
+}
+</pre>
+    <p>
+        现在，列表分隔符就会在均匀间隔的位置出现。
+    </p>
+    <h3 id="t14">
+        14. 使用属性选择器用于空链接
+    </h3>
+    <p>
+        当a元素没有文本值，但 href 属性有链接的时候显示链接：
+    </p>
+<pre>a[href^="http"]:empty::before {
+  content: attr(href);
+}
+</pre>
+    <p>
+        相当方便。
+    </p>
+    <h3 id="t15">
+        15. 检测鼠标双击
+    </h3>
+    <p>
+        HTML：
+    </p>
+<pre>&lt;div class="test3"&gt;
+  &lt;span&gt;&lt;input type="text" value=" " readonly="true" /&gt;
+  &lt;a href="http://renpingjun.com"&gt;Double click me&lt;/a&gt;&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+    <p>
+        CSS：
+    </p>
+<pre>.test3 span {
+  position: relative;
+}
+.test3 span a {
+  position: relative;
+  z-index: 2;
+}
+.test3 span a:hover, .test3 span a:active {
+  z-index: 4;
+}
+.test3 span input {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 101%;  /* Hacky */
+  height: 301%; /* Hacky */
+  z-index: 3;
+}
+.test3 span input:focus {
+  background: transparent;
+  border: 0;
+  z-index: 1;
+}
+</pre>
+    <h3 id="t16">
+        16. CSS 写出三角形
+    </h3>
+    <p>
+        利用border来写三角形代码，并且兼容IE6.
+    </p>
+<pre>/* create an arrow that points up */
+div.arrow-up {
+  width:0px;
+  height:0px;
+  border-left:5px solid transparent;  /* left arrow slant */
+  border-right:5px solid transparent; /* right arrow slant */
+  border-bottom:5px solid #2f2f2f; /* bottom, add background color here */
+  font-size:0px;
+  line-height:0px;
+}
+
+/* create an arrow that points down */
+div.arrow-down {
+  width:0px;
+  height:0px;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-top:5px solid #2f2f2f;
+  font-size:0px;
+  line-height:0px;
+}
+
+/* create an arrow that points left */
+div.arrow-left {
+  width:0px;
+  height:0px;
+  border-bottom:5px solid transparent;  /* left arrow slant */
+  border-top:5px solid transparent; /* right arrow slant */
+  border-right:5px solid #2f2f2f; /* bottom, add background color here */
+  font-size:0px;
+  line-height:0px;
+}
+
+/* create an arrow that points right */
+div.arrow-right {
+  width:0px;
+  height:0px;
+  border-bottom:5px solid transparent;  /* left arrow slant */
+  border-top:5px solid transparent; /* right arrow slant */
+  border-left:5px solid #2f2f2f; /* bottom, add background color here */
+  font-size:0px;
+  line-height:0px;
+}
+</pre>
+    <h3 id="t17">
+        17. <span class="wp_keywordlink_affiliate">CSS3</span> calc() 的使用
+    </h3>
+    <p>
+        calc() 用法类似于函数，能够给元素设置动态的值：
+    </p>
+<pre>/* basic calc */
+.simpleBlock {
+  width: calc(100% - 100px);
+}
+
+/* calc in calc */
+.complexBlock {
+  width: calc(100% - 50% / 3);
+  padding: 5px calc(3% - 2px);
+  margin-left: calc(10% + 10px);
+}
+</pre>
+    <h3 id="t18">
+        18. 文本渐变
+    </h3>
+    <p>
+        文本渐变效果很流行，使用 CSS3 能够很简单就实现：
+    </p>
+<pre>h2[data-text] {
+  position: relative;
+}
+h2[data-text]::after {
+  content: attr(data-text);
+  z-index: 10;
+  color: #e3e3e3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), color-stop(50%, rgba(0,0,0,1)), to(rgba(0,0,0,0)));}
+</pre>
+    <h3 id="t19">
+        19. 禁用鼠标事件
+    </h3>
+    <p>
+        CSS3 新增的 pointer-events 让你能够禁用元素的鼠标事件，例如，一个连接如果设置了下面的样式就无法点击了。
+    </p>
+<pre>.disabled { pointer-events: none; }
+</pre>
+    <h3 id="t20">
+        20. 模糊文本
+    </h3>
+    <p>
+        简单但很漂亮的文本模糊效果，简单又好看！
+    </p>
+<pre>.blur {
+   color: transparent; text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}</pre>
+</div>

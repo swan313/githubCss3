@@ -1,0 +1,70 @@
+.heartbeat {
+    margin:100px auto;
+    text-indent:-999em;
+    height:4px;
+    width: 4px;
+    overflow:hidden;
+
+    background: #ef0000;
+    color: #fff;
+    opacity:0.1;
+
+    -webkit-box-shadow: 0 0 3px #ef0000;
+    -moz-box-shadow: 0 0 3px #ef0000;
+    -ms-box-shadow: 0 0 3px #ef0000;
+    -o-box-shadow: 0 0 3px #ef0000;
+    box-shadow: 0 0 3px #ef0000;
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px;
+    -ms-border-radius:2px;
+    -o-border-radius:2px;
+    border-radius:2px;
+
+    -webkit-animation-name: heartbeat;
+    -webkit-animation-duration: 0.83s;		/*人的标准心跳频率是72次每分钟，平均心跳频率是75次每分钟*/
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes 'heartbeat' {
+    from {
+        opacity:0.1;
+    }
+    50% {
+        opacity:1;
+    }
+    to {
+        opacity:0.1;
+    }
+}
+
+@-webkit-keyframes 'heartbeat2' {
+    from {
+        opacity:0.5;
+    }
+    50% {
+        opacity:1;
+    }
+    to {
+        opacity:0.5;
+    }
+}
+
+.size2{
+
+    width:100px;
+    height:30px;
+    line-height:25px;
+    text-indent:0;
+    background:orange;
+    text-align:center;
+    text-shadow:1px 1px 3px #333;
+
+    -webkit-box-shadow:0 0 5px orange;
+    -moz-box-shadow: 0 0 5px orange;
+    -ms-box-shadow: 0 0 5px orange;
+    -o-box-shadow: 0 0 5px orange;
+    box-shadow: 0 0 5px orange;
+
+    -webkit-animation-name: heartbeat2;
+}

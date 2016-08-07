@@ -1,0 +1,10 @@
+body{font-family:Arial;font-size:20px;}
+body,ul{margin:0;padding:0;list-style:none;}
+.effect{width:70%;height:200px;margin:50px auto;background:#fff;position:relative;box-shadow:0px 1px 4px rgba(0,0,0,0.3),0 0 40px rgba(0,0,0,0.1) inset;}
+.effect h1{font-size:20px;text-align:center;line-height:200px;}
+.effect:before,.effect:after{content:'';background:#fff;position:absolute;top:50%;bottom:-1px;left:10px;right:10px;box-shadow:0 0 20px rgba(0,0,0,0.8);border-radius:10%;z-index:-1;}
+.box{width:980px;height:auto;clear:both;overflow:hidden;margin:20px auto;}
+.box li{position:relative;background:#fff;width:300px;height:210px;float:left;margin:20px 10px;border:2px solid #efefef;box-shadow:0 1px 4px rgba(0,0,0,0.3),0 0 60px rgba(0,0,0,0.1) inset;}
+.box li img{display:block;width:290px;height:200px;margin:5px;}
+.box li:before{content:'';position:absolute;width:90%;height:80%;left:20px;bottom:8px;box-shadow:0 8px 20px rgba(0,0,0,0.6);background:transparent;transform:skew(-12deg) rotate(-4deg);z-index:-2;}
+.box li:after{content:'';position:absolute;width:90%;height:80%;right:20px;bottom:8px;box-shadow:0 8px 20px rgba(0,0,0,0.6);background:transparent;transform:skew(12deg) rotate(4deg);z-index:-3;}
